@@ -1,0 +1,187 @@
+{% extends "global/Page.html" %}
+{% load otree static%}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+{% load otree staticfiles %}
+<div style="card">
+    <table class="table table-striped" style="background:  #f5f5f5">
+        <thead class="font-weight-bold"></thead>
+
+        <tbody>
+        <tr>
+            <td style="font-size:20px;">Please indicate to what extent do you agree or
+                disagree with the following statements:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                1. The
+                {% if player.x1 == 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                is more likely to be a fair evaluator than the
+                {% if player.x1 != 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %} .
+
+                {% formfield player.fair label = ""%}
+            </td>
+        </tr>
+
+        <tr>
+            <td> 2. The
+                {% if player.x1 == 0 %}
+                human recruitment
+                {% else %}
+                algorithmic recruitment
+                {% endif %}
+                decisions are more likely to be transparent than the
+                {% if player.x1 != 0 %}
+                human recruitment
+                {% else %}
+                algorithmic recruitment
+                {% endif %}decisions.
+
+                {% formfield player.transparent label = "" %}
+            </td>
+        </tr>
+
+        <tr>
+            <td> 3. The
+                {% if player.x1 == 0 %}
+                human recruitment
+                {% else %}
+                algorithmic recruitment
+                {% endif %}
+                decisions are simpler than the
+                {% if player.x1 != 0 %}
+                human recruitment
+                {% else %}
+                algorithmic recruitment
+                {% endif %}
+                decisions.
+                {% formfield player.simpler label = ""%}
+            </td>
+        </tr>
+
+        <tr>
+            <td> 4. The
+                {% if player.x1 == 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                is more familiar to me than the
+                {% if player.x1 != 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}.
+                {% formfield player.familiar label="" %}
+            </td>
+        </tr>
+
+        <tr>
+            <td> 5. The
+                {% if player.x1 == 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                will care more abouth my characteristics than the
+                {% if player.x1 != 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}.
+                {% formfield player.characteristics label="" %}
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>6. The {% if player.x1 == 0 %}human recruiter {% else %} algorithmic recruiter
+                {% endif %} will care more about my previous task performance than the
+                {% if player.x1 != 0 %} human recruiter{% else %}algorithmic recruiter.
+                {% endif %}{% formfield player.previous_performance label="" %}
+            </td>
+        </tr>
+
+        <tr>
+            <td> 7. The {% if player.x1 == 0 %} human recruiter
+                {% else %} algorithmic recruiter{% endif %}
+                is more likely to discriminate against me than
+                {% if player.x1 != 0 %} human recruiter {% else %}
+                algorithmic recruiter{% endif %}
+                {% formfield player.discriminate label="" %}
+            </td>
+        </tr>
+
+        <tr>
+            <td> 8. The
+                {% if player.x1 == 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                will make descisions more quickly than the
+                {% if player.x1 != 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                .
+                {% formfield player.quickly label="" %}
+            </td>
+        </tr>
+
+        <tr>
+            <td> 9. The
+                {% if player.x1 == 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                will make more errors than the
+                {% if player.x1 != 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                .
+                {% formfield player.error label="" %}
+            </td>
+        </tr>
+
+        <tr>
+            <td>10. The
+                {% if player.x1 == 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                will care more abouth other things not mentioned so far than the
+                {% if player.x1 != 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                .
+                {% formfield player.other label="" %}
+            </td>
+        </tr>
+
+
+        </tbody>
+    </table>
+</div>
+{% next_button %}
+{% endblock %}

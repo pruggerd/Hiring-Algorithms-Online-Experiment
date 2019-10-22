@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree static otree_tools%}
+
+{% block title %}
+    Stage 2: Exercise
+{% endblock %}
+
+{% block content %}
+        {% tracking_time %}
+
+
+    <div class="wrapper instructions">
+    <p>
+     You can now turn around the sheets of paper next to your keyboard and start the exercise. After filling in all the 42 rows, click the "Next" button on the
+        computer to advance. To advance, the "Next" button will appear in a few minutes.
+    </p>
+
+    <br />
+</div>
+
+  {% next_button %}
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+            setTimeout(function () {
+                $('.otree-btn-next').show();
+            }, 600 * 1000);
+    </script>
+{% endblock %}
+
+
+{% block styles %}
+    <style>
+            .otree-btn-next {
+                display: none;
+            }
+    </style>
+{% endblock %}
+
+

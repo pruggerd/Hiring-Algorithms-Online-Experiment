@@ -1,0 +1,74 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+
+{% load otree staticfiles %}
+
+
+<div class="wrapper instructions">
+    <p>
+
+
+        Now, please state what number of seconds you think both recruiters will predict for your average task performance.
+         <br /><br />
+        {% if player.treatment == 'transp' %}
+            The algorithm predicts a worse performance for participants who are female (+4.1 seconds), older (+0.75 seconds per year of age), have a higher level of education (+0.7 seconds per level of education) and solved round 9 more slowly (+0.5 seconds for each additional second in round 9).
+               <br /><br />
+            {% else %}
+        {% endif %}
+
+        Your performance in Round 9 was: {{time9}} seconds.
+
+    </p>
+
+</div>
+<div class="wrapper instructions">
+
+    <table class="table table-sm" style="background: #f5f5f5">
+        <thead class="font-weight-bold"> Enter your choices about both recruiters below. One of the two answers will be randomly chosen for payment.</thead>
+
+        <tbody>
+   <tr>
+            <td>{% formfield player.beliefalgorithm label="What average time (in seconds) do you think the algorithmic recruiter predicts for you?"%}</td>
+   </tr>
+
+   <tr>
+            <td>{% formfield player.beliefhuman label="What average time (in seconds) do you think the human recruiter predicts for you?"%}</td>
+   </tr>
+
+
+
+        </tbody>
+    </table>
+</div>
+
+
+    <div class="wrapper instructions">
+
+    <table class="table table-sm" style="background: #f5f5f5">
+        <thead class="font-weight-bold"> Here, please indicate how confident you are in your estimate.  </thead>
+
+        <tbody>
+
+      <tr>
+            <td>{% formfield player.accuracyalgorithm label="“How likely is it that your estimate is within 10 seconds of the actual algorithmic prediction? (0 means not likely at all, 100 means certainty"%}</td>
+   </tr>
+
+        <tr>
+            <td>{% formfield player.accuracyhuman label="“How likely is it that your estimate is within 10 seconds of the actual human prediction? (0 means not likely at all, 100 means certainty"%}</td>
+   </tr>
+
+
+
+        </tbody>
+    </table>
+</div>
+    {% next_button %}
+
+
+{% endblock %}

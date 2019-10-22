@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Exercise 9
+{% endblock %}
+
+{% block content %}
+
+<p style="font-size:25px;"> Write the two numbers which sum up to 100 as fast as possible in the fields </p>
+<table class="table table-bordered w-50" style="background:  #e6eeff">
+    <tr>
+        <td style="font-weight: bold" align="center">75</td>
+        <td style="font-weight: bold" align="center">71</td>
+        <td style="font-weight: bold" align="center">5</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">28</td>
+        <td style="font-weight: bold" align="center">43</td>
+        <td style="font-weight: bold" align="center"> 8</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">13</td>
+        <td style="font-weight: bold" align="center">57</td>
+        <td style="font-weight: bold" align="center">15</td>
+    </tr>
+</table>
+{% formfield player.answer_q91 label="First number"%}
+{% formfield player.answer_q92 label="Second number"%}
+{% next_button %}
+
+{% endblock %}

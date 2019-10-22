@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Training Round 1
+
+{% endblock %}
+
+{% block content %}
+
+<p  style="font-size:25px;"> Write the two numbers which sum up to 100 as fast as possible in the fields.  </p>
+    <br />
+<table class="table table-bordered w-50" style="background: #ffffff">
+    <tr>
+        <td style="font-weight: bold" align="center">87</td>
+        <td style="font-weight: bold" align="center">69</td>
+        <td style="font-weight: bold" align="center">71</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">4</td>
+        <td style="font-weight: bold" align="center">66</td>
+        <td style="font-weight: bold" align="center">79</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">21</td>
+        <td style="font-weight: bold" align="center">68</td>
+        <td style="font-weight: bold" align="center">97</td>
+    </tr>
+</table>
+{% formfield player.answer_q01 label="First number"%}
+{% formfield player.answer_q02 label="Second number"%}
+{% next_button %}
+
+{% endblock %}
+
+{% comment %}
+<img src="{% static " Matrix1.jpg" %}" />
+{% endcomment %}

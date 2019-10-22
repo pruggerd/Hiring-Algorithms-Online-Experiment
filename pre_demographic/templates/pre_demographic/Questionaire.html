@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Demographic Survey
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+        <tr class="header">
+            <th class="center">Please answer the following questions about yourself.</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>{% formfield player.age label="Enter your age:" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.gender label="Enter your gender:" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.education label="What is your education level?" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.nationality label="What is your country of birth?" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.ethnicity label="What is your ethnicity?" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.residency label="What is your country of residence?" %}</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+{% next_button %}
+{% endblock %}
+
+

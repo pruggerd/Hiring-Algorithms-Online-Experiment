@@ -1,0 +1,82 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block content %}
+
+   {% comment %} <table class="table table-sm" style="background: ghostwhite">
+        <tr>
+            <td>Key Values</td>
+            <td> Your Score</td>
+           {%comment%} <td>Other</td>{%endcomment%
+        </tr>
+
+        <tr>
+            <td>Neuroticism</td>
+            <td> {{ player.Neuroticism }}</td>
+            {%comment%}<td> {{ player.other_player.Neuroticism }}</td>{%endcomment%
+        </tr>
+        <tr>
+            <td>Extraversion</td>
+            <td> {{ player.Extraversion }}</td>
+            {%comment%}<td> {{ player.other_player.Extraversion }}</td>{%endcomment%
+        </tr>
+        <tr>
+            <td>Openness</td>
+            <td> {{ player.Openness }}</td>
+            {%comment%}<td> {{ player.other_player.Openness }}</td>{%endcomment%
+        </tr>
+        <tr>
+            <td>Agreeableness</td>
+            <td> {{ player.Agreeableness }}</td>
+           {%comment%} <td> {{ player.other_player.Agreeableness }}</td>{%endcomment%
+        </tr>
+        <tr>
+            <td>Conscientiousness</td>
+            <td> {{ player.Conscientiousness }}</td>
+            {%comment%}<td> {{ player.other_player.Conscientiousness }}</td>{%endcomment%
+        </tr>
+        </table>
+    {% endcomment %}
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+
+    {% next_button %}
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        Highcharts.chart('container', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Your individual values'
+            },
+            xAxis: {
+                categories: ['Neuroticism', 'Extraversion', 'Openness', 'Agreeableness','Conscientiousness']
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'You',
+                data: [{{ player.Neuroticism }}, {{ player.Extraversion }}, {{ player.Openness }},
+                    {{ player.Agreeableness }}, {{ player.Conscientiousness }}]
+            },
+            {%comment%}{
+                name: 'Other Player',
+                data: [{{ player.other_player.Neuroticism }}, {{ player.other_player.Extraversion }}, {{ player.other_player.Openness }},
+                    {{ player.other_player.Agreeableness }}, {{ player.other_player.Conscientiousness }}]
+            }{%endcomment%}]
+        });
+    </script>
+{% endblock %}
+
+

@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block content %}
+
+<table class="table table-striped" style="background: #f5f5f5">
+        <thead class="font-weight-bold"> In the previous task, you chose  {% if player.choice1 == 0 %}
+                the human recruiter
+                {% else %}
+                the algorithmic recruiter
+                {% endif %} as your preferred recruitment method. </thead>
+
+        <tbody>
+        <tr>
+            <td>{% formfield player.explanation label="Please explain why you chose this method over the other. Your answer helps to better understand your decision. " %}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+    <table class="table table-striped" style="background: #f5f5f5">
+        <thead class="font-weight-bold"> You thought that the human evaluator would assign you a value of {{beliefh}}, and that the
+        algorithmic evaluator would assign you a value of {{beliefa}}. </thead>
+
+        <tbody>
+        <tr>
+            <td>{% formfield player.explanation2 label="Please explain the difference (if any) between these values. Your answer helps to better understand your decisions." %}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+{% next_button %}
+{% endblock %}

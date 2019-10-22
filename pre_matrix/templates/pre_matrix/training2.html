@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Results Training Round
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+
+    <p>
+    <div style="font-weight: normal" align="center">Here is a summary of your training rounds.
+
+    <table class="table table-bordered w-50" style="background: #e6f2ff" align="center">
+        <tr>
+            <td style="font-weight: bold" align="center">Question</td>
+
+            <td style="font-weight: bold" align="center">Your time</td>
+            <td style="font-weight: bold" align="center">number of tries</td>
+
+        </tr>
+        <tr>
+            <td style="font-weight: bold" align="center">Training Round 1</td>
+            <td style="font-weight: bold" align="center">{{ player.elapsed_time0 }}</td>
+            <td style="font-weight: bold" align="center">{{ count0 }}</td>
+        </tr>
+
+            <tr>
+        <td style="font-weight: bold" align="center">Training round 2</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time1 }}</td>
+        <td style="font-weight: bold" align="center">{{ count1 }}</td>
+    </tr>
+
+                    <tr>
+        <td style="font-weight: bold" align="center">Training round 3</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time2 }}</td>
+        <td style="font-weight: bold" align="center">{{ count2 }}</td>
+    </tr>
+    </table>
+
+    <p>
+    <div style="font-weight: normal" align="center"></div>
+
+</div>
+
+
+{% next_button %}
+{% endblock %}

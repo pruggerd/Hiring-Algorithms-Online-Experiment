@@ -1,0 +1,183 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block content %}
+<p>
+    These are your decisions
+</p>
+
+
+<table class="table table-sm" style="background: ghostwhite">
+    <tr>
+        <td style="font-weight: bold">Key Values</td>
+        <td style="font-weight: bold"> Your Score</td>
+        {%comment%}<td style="font-weight: bold"> Other Player' s Score</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Worry</td>
+        <td>{{ my_Worry }}</td>
+        {%comment%}<td>{{ other_Worry }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Nervous</td>
+        <td>{{ my_Nervous}}</td>
+       {%comment%} <td>{{ other_Nervous }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Relax</td>
+        <td>{{ my_Relax}}</td>
+        {%comment%}<td>{{ other_Relax}}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Talkative</td>
+        <td>{{ my_Talkative }}</td>
+        {%comment%}<td>{{ other_Talkative }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Sociable</td>
+        <td>{{ my_Sociable }}</td>
+        {%comment%}<td>{{ other_Sociable }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Reserved</td>
+        <td>{{ my_Reserved }}</td>
+        {%comment%}<td>{{ other_Reserved }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Original</td>
+        <td>{{ my_Original }}</td>
+       {%comment%} <td>{{ other_Original }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Artistic</td>
+        <td>{{ my_Artistic }}</td>
+       {%comment%} <td>{{ other_Artistic }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Active_imagination</td>
+        <td>{{ my_Active_imagination }}</td>
+        {%comment%}<td>{{ other_Active_imagination }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Rude</td>
+        <td>{{ my_Rude }}</td>
+       {%comment%} <td>{{ other_Rude }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Forgiving</td>
+        <td>{{ my_Forgiving }}</td>
+       {%comment%} <td>{{ other_Forgiving }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Considerate</td>
+        <td>{{ my_Considerate }}</td>
+       {%comment%} <td>{{ other_Considerate }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Thorough_job</td>
+        <td>{{ my_Thorough_job }}</td>
+       {%comment%} <td>{{ other_Thorough_job }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Lazy</td>
+        <td>{{ my_Lazy }}</td>
+       {%comment%} <td>{{ other_Lazy }}</td>{%endcomment%}
+    </tr>
+    <tr>
+        <td>Efficient</td>
+        <td>{{ my_Efficient}}</td>
+       {%comment%} <td>{{ other_Efficient }}</td>{%endcomment%}
+    </tr>
+
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+{% next_button %}
+
+{% endblock %}
+{% comment %}
+{% block scripts %}
+<script>
+
+
+        var categories = [ 'Worry', 'Nervous','Relax',
+                   'Talkative', 'Sociable', 'Reserved', 'Original', 'Artistic', 'Active_imagination', 'Rude',
+                   'Forgiving', 'Considerate','Thorough_job','Lazy', 'Efficient',
+        ];
+
+        Highcharts.chart('container', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Individual values'
+            },
+            subtitle: {
+                text: 'values'
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) ;
+                    }
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                }
+            },
+
+            series: [{
+                name: 'You',
+                data: [{{my_Worry}}, {{my_Nervous}}, {{my_Relax}}, {{my_Talkative}}, {{my_Sociable}},
+                    {{my_Reserved}}, {{my_Original}}, {{my_Artistic}},
+                    {{my_Active_imagination}}, {{my_Rude}}, {{my_Forgiving}}, {{my_Considerate}},
+                    {{my_Thorough_job}}, {{my_Lazy}}, {{my_Efficient}}
+                ]
+            }, {
+                name: 'Other',
+                data: [{{other_Worry}}, {{other_Nervous}}, {{other_Relax}}, {{other_Talkative}},
+                    {{other_Sociable}}, {{other_Reserved}}, {{other_Original}}, {{other_Artistic}},
+                    {{other_Active_imagination}}, {{other_Rude}}, {{other_Forgiving}}, {{other_Considerate}},
+                    {{other_Thorough_job}}, {{other_Lazy}}, {{other_Efficient}}
+                ]
+            }]
+        });
+
+</script>
+{% endblock %}
+
+{% endcomment %}

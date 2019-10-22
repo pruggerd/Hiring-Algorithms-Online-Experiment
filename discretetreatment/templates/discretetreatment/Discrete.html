@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+
+{% load otree staticfiles %}
+
+
+    <p><b>Now, choose the recruiter that you want to be evaluated by. </b></p>
+<div>
+    {% if player.rand_choice == 0 %}
+        <button name="choice1" value=0 class="btn btn-primary btn-large">A human recruiter</button>
+         <button name="choice1" value=1 class="btn btn-primary btn-large">An algorithmic recruiter</button>
+        </div>
+    <br />
+    <br />
+            {% else %}
+        <button name="choice1" value=1 class="btn btn-primary btn-large">An algorithmic recruiter</button>
+        <button name="choice1" value=0 class="btn btn-primary btn-large">A human recruiter</button>
+        </div>
+    <br />
+    <br />
+        {% endif %}
+    <br />
+    <br />
+
+    <div class="wrapper instructions">
+    <p>
+
+
+        Just to remind you: both recruiters are given the same information about you: <br /><br />
+        1) your task performance for the round that was selected for payment (Round 9), and <br />
+        2) your personal characteristics: gender, age,  education, and ethnicity.  <br /><br />
+           {% if player.treatment == 'transp' %}
+               <br /> In particular, the algorithm predicts: <br />
+                    - a better average performance for male participants (4.1 seconds faster) relative to female ones, <br />
+                    - a better average performance for participants who had a better performance in round 9 (0.5 seconds faster for every 1 second they were faster in round 9) <br />
+                        <br /><br />
+            {% else %}
+        {% endif %}
+        You have to choose either the human or the algorithmic recruiter which will then predict your average time of solving the exercises.
+        As the two recruiters determine your prediction in different ways, their prediction can vary from each other.
+    </p>
+    </div>
+
+
+{% endblock %}
+

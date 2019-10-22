@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Introduction
+{% endblock %}
+
+{% block content %}
+
+
+{% load otree staticfiles %}
+
+
+    <h3 class="panel-sub-heading">
+        Instructions
+    </h3>
+    <p>
+        Suppose a firm wants to hire people to perform this task for a longer period of time, and
+        wants to hire those who would have the highest average performance in the number-finding
+        exercise. The firm can hire MTurk workers in two different ways. The first way is to use a
+        human recruiter. The second is to use an automated algorithm – that is, a computer program.
+        Both the human recruiter and the algorithmic recruiter would be given the same information
+        about you (and other participating MTurkers). This information is 1) your task performance
+        for the round that was selected for payment, and 2) your characteristics (age, highest
+        education, gender, and ethnicity).
+
+
+    </p>
+
+    <table class="table table-sm" style="background: ghostwhite">
+        <thead class="font-weight-bold"> Please answer the following question to show that you understood the exercise:</thead>
+
+        <tbody>
+   <tr>
+            <td>{% formfield player.test1 label="Do the algorithm and the human evaluator make the hiring decision based on the same information?"%}</td>
+   </tr>
+        </tbody>
+    </table>
+
+    {% next_button %}
+
+</div>{% endblock %}
+

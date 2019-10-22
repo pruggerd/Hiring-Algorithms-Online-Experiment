@@ -1,0 +1,64 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Stage 2: Instructions
+{% endblock %}
+
+{% block content %}
+<div class="wrapper instructions">
+    <p>
+     In the past, 42 participants performed ten rounds of similar number - finding exercises. In each round, the participants also had to find
+        the two numbers adding up to 100 and each round contained different numbers.
+        Next to your keyboard, you find three sheets of paper. In these you are given 42 rows, one for each participant.
+        On the sheet, there are their characteristics (gender, age, education and ethnicity)  and the speed of one of these 10 rounds.
+        <br /><br />
+        You will be paid according to how precise you are in predicting the actual average speed of the participant.
+        The more your guess diverges from the actual average, the less money you will be paid.
+        Your payment will then be determined by one randomly chosen round from all your predictions.  In the table below you can see how the difference between your guess and the actual
+        average affects your payment.
+    </p>
+    <br />
+</div>
+
+
+   <br />
+
+    <table class="table table-bordered w-50" style="background: #e6f2ff">
+    <tr>
+        <td style="font-weight: bold" align="center">Difference in seconds</td>
+        <td style="font-weight: bold" align="center">0</td>
+        <td style="font-weight: bold" align="center">2</td>
+        <td style="font-weight: bold" align="center">4</td>
+        <td style="font-weight: bold" align="center">6</td>
+        <td style="font-weight: bold" align="center">8</td>
+        <td style="font-weight: bold" align="center">10</td>
+        <td style="font-weight: bold" align="center">12</td>
+        <td style="font-weight: bold" align="center">14</td>
+        <td style="font-weight: bold" align="center">15 or more</td>
+
+
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">Payoff in Euros</td>
+        <td style="font-weight: bold" align="center">8</td>
+        <td style="font-weight: bold" align="center">7.84</td>
+        <td style="font-weight: bold" align="center">7.36</td>
+        <td style="font-weight: bold" align="center">6.56</td>
+        <td style="font-weight: bold" align="center">5.54</td>
+        <td style="font-weight: bold" align="center">4</td>
+        <td style="font-weight: bold" align="center">2.24</td>
+        <td style="font-weight: bold" align="center">0.16</td>
+        <td style="font-weight: bold" align="center">0</td>
+
+    </tr>
+</table>
+
+    <br />
+
+
+</div>
+
+  {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+
+
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Introduction
+{% endblock %}
+
+{% block content %}
+<div class="wrapper instructions">
+        <p>
+        Welcome! You will be given further instructions when the experiment starts, but we would like to inform you shortly about
+            the game and lab rules beforehand.
+                <br /><br />
+            The experiment will last around 40 minutes. There are no trick questions or secret tips hidden in the experiment.
+            You will have to make choices based on the information you receive. You will earn money as a result of these choices.
+            How much you earn depends on the decisions you make during the experiment. You will be paid 3 euros as a show-up fee.  You can earn
+     up to additional 8 Euros by conducting the experiment. You will be paid in cash right after the experiment is finished.
+
+            <br /><br />
+            Please remember that you are not allowed to communicate with other participants during the experiment. If you have any questions, please raise
+            your hand and we will come by to answer them. Please don't touch the sheet of paper next to your keyboard until mentioned.
+
+
+            <br /><br />
+
+        Further instructions on this will follow in due time. Click "Next" to start.
+  </p>
+</div>
+
+
+    {% next_button %}
+
+{% endblock %}

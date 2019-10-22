@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Your final payoff
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <table class="table table-striped">
+
+        <tr>
+            <th>Category</th>
+            <th>Your payoff</th>
+        </tr>
+        <tr>
+            <td>Matrix payoff</td>
+            <td>{{matrix_payoff}}</td>
+        </tr>
+        <tr>
+            <td>Choice payoff</td>
+            <td>{{ choice_payoff }}</td>
+        </tr>
+        <tr>
+            <td>Belief payoff</td>
+            <td>{{ belief_payoff }}</td>
+        </tr>
+        <tr>
+            <td>Lottery payoff</td>
+            <td>{{ scl_payoff }}</td>
+        </tr>
+        <tr>
+            <td> Total payoff plus participation fee</td>
+            <td>{{ participant.payoff_plus_participation_fee}}</td>
+        </tr>
+    </table>
+</div>
+
+{% next_button %}
+{% endblock %}
+
+

@@ -1,0 +1,85 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block content %}
+
+<table class="table table-bordered w-50" style="background: #e6f2ff">
+    <tr>
+        <td style="font-weight: bold" align="center">Question</td>
+
+        <td style="font-weight: bold" align="center">Your time</td>
+        <td style="font-weight: bold" align="center">Your score</td>
+        <td style="font-weight: bold" align="center">number of tries</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">1</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time1 }}</td>
+        <td style="font-weight: bold" align="center">{{ score1 }}</td>
+        <td style="font-weight: bold" align="center">{{ count1 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">2</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time2 }}</td>
+        <td style="font-weight: bold" align="center">{{ score2 }}</td>
+        <td style="font-weight: bold" align="center">{{ count2 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">3</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time3}}</td>
+        <td style="font-weight: bold" align="center">{{ score3 }}</td>
+        <td style="font-weight: bold" align="center">{{ count3 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">4</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time4 }}</td>
+        <td style="font-weight: bold" align="center">{{ score4 }}</td>
+        <td style="font-weight: bold" align="center">{{ count4 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">5</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time5}}</td>
+        <td style="font-weight: bold" align="center">{{ score5}}</td>
+        <td style="font-weight: bold" align="center">{{ count5 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">6</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time6}}</td>
+        <td style="font-weight: bold" align="center">{{ score6}}</td>
+        <td style="font-weight: bold" align="center">{{ count6 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">7</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time7}}</td>
+        <td style="font-weight: bold" align="center">{{ score7}}</td>
+        <td style="font-weight: bold" align="center">{{ count7 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">8</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time8}}</td>
+        <td style="font-weight: bold" align="center">{{ score8}}</td>
+        <td style="font-weight: bold" align="center">{{ count8 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">9</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time9}}</td>
+        <td style="font-weight: bold" align="center">{{ score9}}</td>
+        <td style="font-weight: bold" align="center">{{ count9 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">10</td>
+        <td style="font-weight: bold" align="center">{{ player.elapsed_time10}}</td>
+        <td style="font-weight: bold" align="center">{{ score10}}</td>
+        <td style="font-weight: bold" align="center">{{ count10 }}</td>
+    </tr>
+
+</table>
+
+
+{% next_button %}
+{% endblock %}
+
+

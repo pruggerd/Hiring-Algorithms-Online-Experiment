@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<div class="wrapper instructions">
+    <p>
+       In the next ten exercises, you will see a table with 9 numbers. Your task is to find the two numbers which sum to 100.
+        For each exercise, you have a maximum time of 90 seconds. You will earn points based on how fast you write down the
+        correct two numbers. If you submit the wrong numbers, an error message will appear and you have to try again until
+        time runs out and the next exercise appears. Your number of points for an exercise is 90 minus the number of seconds
+        it takes you to correctly solve it.
+        One of the 10 exercises will be chosen for payment.
+        After cumulating all points you’ve earned during the HIT, they are converted to US Dollars, where 60 points earns 1 US Dollar.<br /><br />
+
+        Before the real exercises start, you are provided with one training round, which does not affect your payments in any way.
+
+    </p>
+</div>
+    {% next_button %}
+
+{% endblock %}

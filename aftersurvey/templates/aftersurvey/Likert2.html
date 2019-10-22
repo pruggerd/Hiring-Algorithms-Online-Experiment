@@ -1,0 +1,110 @@
+{% extends "global/Page.html" %}
+{% load otree static%}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+        {% load otree staticfiles %}
+
+<table class="table table-sm" style="background: ghostwhite">
+        <thead class="font-weight-bold"> </thead>
+
+        <tbody>
+            <tr>
+                <td style="color: mediumblue"><p class="font-weight-normal">Please indicate to what extent you agree or disagree with the following statements:
+                    [1-7 from  strongly agree - neutral - to strongly disagree]
+                </td>
+            </tr>
+        </tbody>
+</table>
+
+
+     The
+            {% if player.x1 == 0 %}
+                human recruiter
+            {% else %}
+                algorithmic recruiter
+            {% endif %}
+            will care more about my previous task performance than the
+            {% if player.x1 != 0 %}
+                human recruiter
+            {% else %}
+                algorithmic recruiter
+            {% endif %}.
+            <tr>
+                <td>{% formfield player.previous_performance label="" %}</td>
+            </tr>
+
+            The
+                {% if player.x1 == 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}
+                is more likely to discriminate against me than
+                 {% if player.x1 != 0 %}
+                human recruiter
+                {% else %}
+                algorithmic recruiter
+                {% endif %}.
+            <tr>
+                <td>{% formfield player.discriminate label="" %}</td>
+            </tr>
+
+            The
+            {% if player.x1 == 0 %}
+                human recruiter
+            {% else %}
+                algorithmic recruiter
+            {% endif %}
+                will make descisions more quickly than the
+            {% if player.x1 != 0 %}
+                human recruiter
+            {% else %}
+                algorithmic recruiter
+            {% endif %}
+            .
+            <tr>
+                <td>{% formfield player.quickly label="" %}</td>
+            </tr>
+
+                The
+            {% if player.x1 == 0 %}
+                human recruiter
+            {% else %}
+                algorithmic recruiter
+            {% endif %}
+                will make more errors than the
+            {% if player.x1 != 0 %}
+                human recruiter
+            {% else %}
+                algorithmic recruiter
+            {% endif %}
+            .
+            <tr>
+                <td>{% formfield player.error label="" %}</td>
+            </tr>
+
+                The
+            {% if player.x1 == 0 %}
+                human recruiter
+            {% else %}
+                algorithmic recruiter
+            {% endif %}
+                will care more abouth other things not mentioned so far than the
+            {% if player.x1 != 0 %}
+                human recruiter
+            {% else %}
+                algorithmic recruiter
+            {% endif %}
+            .
+             <tr>
+                <td>{% formfield player.other label="" %}</td>
+            </tr>
+
+
+
+{% next_button %}
+{% endblock %}

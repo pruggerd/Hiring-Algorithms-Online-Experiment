@@ -1,0 +1,120 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results and payment information
+{% endblock %}
+
+{% block content %}
+
+
+{% load otree staticfiles %}
+
+
+                        {% if player.choice1  == 0%}
+                            <div class="wrapper instructions">
+                You have chosen to be evaluated by the human recruiter. In the past, we have collected information of various human recruiters and
+                            assigned the best match to you. Below you see your resulting payment information:
+                            </div>
+
+                            <table class="table table-bordered w-50" style="background: #e6f2ff" align="center">
+        <tr>
+            <td style="font-weight: bold" align="center">Your chosen recruitment method</td>
+            <td style="font-weight: bold" align="center">Predicted time </td>
+            <td style="font-weight: bold" align="center">Your Payoff </td>
+
+        </tr>
+
+        <tr>
+            <td style="font-weight: bold" align="center">Human recruiter</td>
+            <td style="font-weight: bold" align="center">{{timehum}}</td>
+            <td style="font-weight: bold" align="center">{{player.payoff_choice_h }}</td>
+        </tr>
+                                    </table>
+
+                {% else %}
+                                 <div class="wrapper instructions">
+                You have chosen to be evaluated by the algorithmic recruiter. Below you see the resulting payment information.
+                                                        </div>
+
+
+                            <table class="table table-bordered w-50" style="background: #e6f2ff" align="center">
+        <tr>
+            <td style="font-weight: bold" align="center">Your chosen recruitment method</td>
+            <td style="font-weight: bold" align="center">Predicted time </td>
+            <td style="font-weight: bold" align="center">Your Payoff </td>
+
+        </tr>
+
+        <tr>
+            <td style="font-weight: bold" align="center">Algorithmic recruiter</td>
+            <td style="font-weight: bold" align="center">{{timealg}}</td>
+            <td style="font-weight: bold" align="center">{{player.payoff_choice_a }}</td>
+        </tr>
+                                    </table>
+                {% endif %}
+
+
+
+
+
+    <br/>
+    <br/>
+
+
+
+
+                                {% if player.random_draw  == 0%}
+
+    <div class="wrapper instructions">
+                For the payment of your assumed time, the human recruitment method was randomly chosen. Below you find your resulting payment information.
+    </div>
+                                    <table class="table table-bordered w-50" style="background: #e6f2ff" align="center">
+        <tr>
+            <td style="font-weight: bold" align="center">Randomly chosen recruitment method</td>
+            <td style="font-weight: bold" align="center">Your assumed time</td>
+            <td style="font-weight: bold" align="center">Predicted time </td>
+            <td style="font-weight: bold" align="center">Your Payoff </td>
+
+        </tr>
+
+        <tr>
+            <td style="font-weight: bold" align="center">Human recruiter</td>
+            <td style="font-weight: bold" align="center">{{belief_h}}</td>
+            <td style="font-weight: bold" align="center">{{timehum}}</td>
+            <td style="font-weight: bold" align="center">{{ payoff_h }}</td>
+        </tr>
+                                    </table>
+
+                                {% else %}
+
+                                        <div class="wrapper instructions">
+
+                For the payment of your believed score, the algorithmic recruitment method was randomly chosen. Below you find your resulting payment information.
+                                        </div>
+                                    <table class="table table-bordered w-50" style="background: #e6f2ff" align="center">
+
+        <tr>
+            <td style="font-weight: bold" align="center">Randomly chosen recruitment method</td>
+            <td style="font-weight: bold" align="center">Your assumed time</td>
+            <td style="font-weight: bold" align="center">Predicted time</td>
+            <td style="font-weight: bold" align="center">Your Payoff </td>
+
+        </tr>
+
+        <tr>
+            <td style="font-weight: bold" align="center">Algorithmic recruiter</td>
+            <td style="font-weight: bold" align="center">{{belief_a}}</td>
+            <td style="font-weight: bold" align="center">{{timealg}}</td>
+            <td style="font-weight: bold" align="center">{{ payoff_a }}</td>
+        </tr>
+
+    </table>
+                                {% endif %}
+
+
+    {% next_button %}
+
+
+{% endblock %}
+

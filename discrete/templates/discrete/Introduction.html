@@ -1,0 +1,62 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Hiring - Introduction
+{% endblock %}
+
+{% block content %}
+
+
+{% load otree staticfiles %}
+
+<div class="wrapper instructions">
+    <p>
+
+        A firm needs people to perform this task for a longer period of time, and
+        wants to hire those who have the highest average performance in the number-finding
+        exercise. But the firm doesn't know your average performance and needs to predict in one of two different ways.
+        The first way is to use a <b> human recruiter</b>. The second is to use an <b> algorithmic recruiter </b> – that is, an automated
+        computer program.<br /><br />
+                {% if player.treatment == 'transp'%}
+                Think of the algorithmic recruiter as a tool that can poll hundreds of people and determine how many seconds each
+                    person needed to solve the exercises on average.
+                This way, the algorithm can learn which characteristics lead to a specific average time and how gender, age, education, ethnicity and performance in round 9
+                affect the average time of solving the exercises. The algorithm was trained on past data and will compare your characteristics
+                to past participants'. Thus, it will calculate your average time based on how similar participants performed in the past.
+                  <br /><br /> In particular, the algorithm predicts: <br />
+                    - a better average performance for male participants (4.1 seconds faster) relative to female ones, <br />
+                    - a better average performance for participants who had a better performance in round 9 (0.5 seconds faster for every 1 second they were faster in round 9) <br />
+                        <br /><br />
+                {% else %}
+
+                {% endif %}
+
+        As the two methods work differently, their results can vary from each other.<br /><br />
+        Both the human recruiter and the algorithmic recruiter are given the same information
+        about you. This information is:  <br /><br />
+        1) your task performance for the round that was selected for payment (Round 9), and <br />
+        2) your personal characteristics: gender, age, education, and ethnicity.  <br /><br />
+    </p>
+</div>
+<div class="wrapper instructions">
+
+    <table class="table table-sm" style="background: #f5f5f5">
+        <thead class="font-weight-bold"> Please answer the following three questions to proceed:</thead>
+
+        <tbody>
+   <tr>
+            <td>{% formfield player.test_intro1 label="Do the algorithm and the human recruiter make the hiring decision based on the same information?"%}</td>
+   </tr>
+   <tr>
+            <td>{% formfield player.test_intro2 label="Can the algorithmic recruiter assign a different score to you than the human recruiter? "%}</td>
+   </tr>
+            <td>{% formfield player.test_intro3 label="Does the algorithm predict a worse performance for females than for male participants? "%}</td>
+        </tbody>
+    </table>
+</div>
+    {% next_button %}
+
+
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block content %}
+
+<table class="table table-striped" style="background: #f5f5f5">
+        <thead class="font-weight-bold"> Please answer the following questions:</thead>
+
+        <tbody>
+   <tr>
+            <td>{% formfield player.explanation1 label="Please explain shortly how you chose the predicted speed of the participants?"%}</td>
+   </tr>
+        <tr>
+            <td>{% formfield player.explanation2 label="Which of the given characteristics (age, gender, education, ethnicity and the speed of the participant in the random round)were the most important for your prediction?" %}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+{% next_button %}
+{% endblock %}

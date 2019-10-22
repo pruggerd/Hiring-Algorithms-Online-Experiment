@@ -1,0 +1,93 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block content %}
+{% block scripts %}
+<script>
+            var SliderTouched = false;
+            var selector = $('[data-slider] input[type="range"]');
+            selector.change(function () {
+                SliderTouched = true;
+            });
+
+
+            $(".form").submit(function (event) {
+                if (!SliderTouched) {
+                    event.preventDefault();
+                }
+            });
+
+
+
+</script>
+{% endblock %}
+
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+        <tr class="header">
+            <th class="center">Please answer the following questions:</th>
+        </tr>
+        <tbody>
+
+        <tr>
+            <td><p>Please indicate to what extent do you agree or disagree with the following statements:
+            </p>
+
+        </tr>
+        <tr>
+            <td>
+                {% formfield player.Worry label="1 I see myself as someone who worries a lot" %}
+            </td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Nervous label="2 I see myself as someone who gets nervous easily" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Relax label="3 I see myself as someone who is relaxed, handles stress well"%}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Talkative label="4 I see myself as someone who is talkative" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Sociable label="5 I see myself as someone who is outgoing, sociable" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Reserved label="6 I see myself as someone who is reserved" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Original label="7 I see myself as someone who is original, comes up with new ideas"%}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Artistic label="8 I see myself as someone who values artistic, aesthetic experiences"%}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Active_imagination label="9 I see myself as someone who has an active imaginations"%}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Rude label="10 I see myself as someone who is sometimes rude to others" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Forgiving label="11 I see myself as someone who has a forgiving nature" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Considerate label="12 I see myself as someone who is considerate and kind to almost everyone" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Thorough_job label="13 I see myself as someone who does a thorough job" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Lazy label="14 I see myself as someone who tends to be lazy" %}</td>
+        </tr>
+        <tr>
+            <td>{% formfield player.Efficient label="15 I see myself as someone who does things efficiently" %}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+{% next_button %}
+{% endblock %}
+
+
+

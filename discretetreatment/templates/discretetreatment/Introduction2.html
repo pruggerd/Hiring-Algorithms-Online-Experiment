@@ -1,0 +1,74 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Hiring - Payoff
+{% endblock %}
+
+{% block content %}
+
+
+{% load otree staticfiles %}
+
+<div class="wrapper instructions">
+      <p> You have to choose either the human or the algorithmic recruiter which will then predict your average time of solving the exercises.
+</p>
+
+    <p>
+        Your payment is determined by how fast your chosen recruiter thinks you can solve these exercises. The lower your predicted average time, the more you earn.
+        Below is a table which shows how your payment is affected.
+        </p>
+
+    <p>
+                {% if player.treatment == 'transp' %}
+            In particular, the algorithm predicts: <br />
+                    - a better average performance for male participants (4.1 seconds faster) relative to female ones, <br />
+                    - a better average performance for participants who had a better performance in round 9 (0.5 seconds faster for every 1 second they were faster in round 9) <br />
+                        <br /><br />
+            {% else %}
+        {% endif %}
+    </p>
+</div>
+
+    <br />
+            <table class="table table-bordered w-50" style="background: #e6f2ff">
+    <tr>
+        <td style="font-weight: bold" align="center">Predicted average time</td>
+        <td style="font-weight: bold" align="center">1 </td>
+        <td style="font-weight: bold" align="center">10 </td>
+        <td style="font-weight: bold" align="center">20 </td>
+        <td style="font-weight: bold" align="center">30 </td>
+        <td style="font-weight: bold" align="center">40 </td>
+        <td style="font-weight: bold" align="center">50 </td>
+        <td style="font-weight: bold" align="center">60 </td>
+        <td style="font-weight: bold" align="center">70 </td>
+        <td style="font-weight: bold" align="center">80 </td>
+        <td style="font-weight: bold" align="center">90 </td>
+
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">Payoff in $</td>
+        <td style="font-weight: bold" align="center">1.48</td>
+        <td style="font-weight: bold" align="center">1.33</td>
+        <td style="font-weight: bold" align="center">1.17</td>
+        <td style="font-weight: bold" align="center">1</td>
+        <td style="font-weight: bold" align="center">0.83</td>
+        <td style="font-weight: bold" align="center">0.67</td>
+        <td style="font-weight: bold" align="center">0.5</td>
+        <td style="font-weight: bold" align="center">0.33</td>
+        <td style="font-weight: bold" align="center">0.17</td>
+        <td style="font-weight: bold" align="center">0</td>
+    </tr>
+</table>
+
+ <br />
+ <br />
+ <br />
+
+
+
+    {% next_button %}
+
+
+{% endblock %}
+

@@ -1,0 +1,96 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load i18n %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+
+{% load otree staticfiles %}
+
+
+    <table class="table table-sm" style="background: #f5f5f5">
+    <thead class="font-weight-bold"> Please read the following instructions carefully:</thead>
+
+        <tbody>
+    <div class="wrapper instructions">
+        <p>
+            {% blocktrans %}
+                On the next page, you'll face two decisions.
+                What average time do you think each recruiter (i.e. algorithmic and human) will predict for you?
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans %}
+                Your payoff is determined by how close you are to the actual predictions of either the algorithm or the human recruiter.
+                After you have answered both questions, one of the two answers will be randomly chosen for payment.
+                If you state a different number than the prediction evaluation,
+                you will be paid according to the table below:
+            {% endblocktrans %}
+        </p>
+
+    <br />
+
+
+
+    <table class="table table-bordered w-50" style="background: #e6f2ff">
+    <tr>
+        <td style="font-weight: bold" align="center">Difference in seconds</td>
+        <td style="..." align="center">0</td>
+        <td style="..." align="center">1</td>
+        <td style="font-weight: bold" align="center">2</td>
+        <td style="font-weight: bold" align="center">3</td>
+        <td style="font-weight: bold" align="center">4</td>
+        <td style="font-weight: bold" align="center">5</td>
+        <td style="font-weight: bold" align="center">6</td>
+        <td style="font-weight: bold" align="center">7</td>
+        <td style="font-weight: bold" align="center">8</td>
+        <td style="font-weight: bold" align="center">9</td>
+        <td style="font-weight: bold" align="center">10 seconds or more</td>
+
+    </tr>
+    <tr>
+        <td style="font-weight: bold" align="center">Payoff in $</td>
+        <td style="font-weight: bold" align="center">1</td>
+        <td style="font-weight: bold" align="center">0.99</td>
+        <td style="font-weight: bold" align="center">0.96</td>
+        <td style="font-weight: bold" align="center">0.91</td>
+        <td style="font-weight: bold" align="center">0.84</td>
+        <td style="font-weight: bold" align="center">0.75</td>
+        <td style="font-weight: bold" align="center">0.64</td>
+        <td style="font-weight: bold" align="center">0.51</td>
+        <td style="font-weight: bold" align="center">0.36</td>
+        <td style="font-weight: bold" align="center">0.19</td>
+        <td style="font-weight: bold" align="center">0</td>
+    </tr>
+</table>
+
+    <br />
+
+
+    <table class="table table-sm" style="background: #f5f5f5">
+        <thead class="font-weight-bold"> Please answer the following two questions to show that you understood the exercise:</thead>
+
+        <tbody>
+   <tr>
+            <td>{% formfield player.test_belief1 label="You always earn the same amount of money, no matter how close you are to the actual prediction"%}</td>
+   <tr>
+            <td>{% formfield player.test_belief2 label="If you were very close to the actual predictions, you can earn up to 1$"%}</td>
+   </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+        </tbody>
+    </table>
+        {% next_button %}
+
+</div>
+
+
+{% endblock %}

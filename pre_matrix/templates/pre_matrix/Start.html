@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Stage 1: Instructions
+{% endblock %}
+
+{% block content %}
+<div class="wrapper instructions">
+    <p>
+       In the next three pages you will see a table with 9 numbers. Your task is to find the two numbers which sum up to 100.
+        For each exercise, you have a maximum time of 90 seconds. The aim is to submit the two correct numbers as fast as possible.  If you submit the wrong numbers,
+        an error message will appear and you have to try again until
+        time runs out and the next exercise appears.
+        Your are now provided with the three training rounds.
+
+    </p>
+</div>
+    {% next_button %}
+
+{% endblock %}

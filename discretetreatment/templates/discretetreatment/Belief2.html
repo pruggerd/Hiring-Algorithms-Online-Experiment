@@ -1,0 +1,141 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+
+{% load otree staticfiles %}
+
+
+<div class="wrapper instructions">
+    <p>
+
+
+        Here, state how high you think both evaluators will judge you.
+        Both the human and the algorithm have access to this information: <br /><br />
+        {{player.treatment}}
+                 Your chosen gender:
+                {% if player.gender2 == 0 %}
+                female
+                {% else %}
+                male
+                {% endif %}
+
+        <br />
+        Your stated education level:
+                {% if player.education2 == 1 %}
+                Some secondary education (high school)
+                {% else %}
+                {% endif %}
+                {% if player.education2 == 2 %}
+                    Completed secondary education (graduated high school)
+                {% else %}
+                {% endif %}
+                {% if player.education2 == 3 %}
+                Trade/technical/vocational training
+                {% else %}
+                {% endif %}
+                {% if player.education2 == 4 %}
+                Some undergraduate education (college or university)
+                {% else %}
+                {% endif %}
+                {% if player.education2 == 5 %}
+                Completed undergraduate education
+                {% else %}
+                {% endif %}
+                {% if player.education2 == 6 %}
+                Some postgraduate education
+                {% else %}
+                {% endif %}
+                {% if player.education2 == 7 %}
+                Completed postgraduate education (masters or doctorate)
+                {% else %}
+                {% endif %}
+
+
+
+
+        <br />
+        Your stated age:
+        {% if player.age2 == 1 %}
+                less than 15
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 2 %}
+                15-20
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 3 %}
+                20-25
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 4 %}
+                25-30
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 5 %}
+                30-35
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 6 %}
+                35-40
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 7 %}
+                40-45
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 8 %}
+                45-50
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 9 %}
+                50-55
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 10 %}
+                55-60
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 11 %}
+                60-65
+                {% else %}
+                {% endif %}
+                {% if player.age2 == 12 %}
+                65 or older
+                {% else %}
+                {% endif %}
+        <br />
+        Your stated ethnicity: {{ethnicity}}
+        <br />
+        Your performance in Round 9: {{time9}} seconds.
+
+    </p>
+
+</div>
+<div class="wrapper instructions">
+
+    <table class="table table-sm" style="background: #f5f5f5">
+        <thead class="font-weight-bold"> Now, please state how well you think both methods evaluate you. Your payment increases
+        the closer your choice is to the actual value: The fastest possible value is 5 seconds, the slowest possible average is 62 seconds. </thead>
+
+        <tbody>
+   <tr>
+            <td>{% formfield player.beliefalgorithm label="What average time do you think the algorithmic evaluator assigns to you?"%}</td>
+   </tr>
+
+   <tr>
+            <td>{% formfield player.beliefhuman label="What average time do you think the human evaluator assigns to you?"%}</td>
+   </tr>
+
+
+        </tbody>
+    </table>
+</div>
+    {% next_button %}
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Payoff
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+
+    <div>
+        <p style="font-weight: normal" align="center"></p>
+        <p>Table 9 was randomly chosen for your payment. </p><br />
+        <p>As mentioned before, your points are divided by 50 and your earnings in US Dollar is as follows:</p>
+    </div>
+    <br/>
+
+    <table class="table table-bordered w-50" style="background: #e6f2ff" align="center">
+
+        <tr>
+            <td style="font-weight: bold" align="center">Random Number</td>
+            <td style="font-weight: bold" align="center">Time in this round </td>
+            <td style="font-weight: bold" align="center">Your payoff</td>
+
+
+        </tr>
+
+        <tr>
+            <td style="font-weight: bold" align="center">9</td>
+            <td style="font-weight: bold" align="center">{{ time9 }}</td>
+            <td style="font-weight: bold" align="center">{{ matrix_payoff }}</td>
+        </tr>
+
+    </table>
+
+
+{% next_button %}
+{% endblock %}
